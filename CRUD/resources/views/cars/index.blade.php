@@ -14,6 +14,30 @@
     <div class="w5/6 py-10">
         @foreach ($cars as $car)
         <div class="m-auto">
+            <div class="float-right">
+                <a
+                    href="cars/{{$car->id}}/edit"
+                    class="border-b-2 pb-2 border-dotted italic text-green-500"
+                    >Edit &rarr;</a
+                >
+
+                <form class="pt-3" action="/cars/{{$car->id}}" method="POST">
+                    @csrf @method('delete')
+                    <button
+                        type="submit"
+                        class="
+                            border-b-2
+                            pb-2
+                            border-dotted
+                            italic
+                            text-red-500
+                        "
+                    >
+                        Delete &rarr;
+                    </button>
+                </form>
+            </div>
+
             <span class="uppercase text-blue-500 font-bold text-xs italic">
                 Founded : {{$car->founded}}
             </span>
