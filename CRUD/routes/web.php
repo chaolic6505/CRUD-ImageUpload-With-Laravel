@@ -15,4 +15,4 @@ use App\Http\Controllers\CarController;
 */
 
 
-Route::resource('/', CarController::class);
+Route::resource('/cars', CarController::class);
