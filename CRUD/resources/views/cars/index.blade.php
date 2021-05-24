@@ -42,7 +42,9 @@
                 Founded : {{$car->founded}}
             </span>
 
-            <h2 class="text-gray-700 text-5xl">{{$car->name}}</h2>
+            <h2 class="text-gray-700 text-5xl hover:text-gray-500">
+                <a href="/cars/{{$car->id}}" class="">{{$car->name}}</a>
+            </h2>
 
             <p class="text-lg text-gray-700 py-6">
                 {{$car->description}}
