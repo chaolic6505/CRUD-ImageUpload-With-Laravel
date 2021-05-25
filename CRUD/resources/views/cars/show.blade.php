@@ -1,6 +1,9 @@
 @extends('layouts.app') @section('content')
 <div class="m-auto w-4/5 py-24">
+
     <div class="text-center">
+        <img class="w-40 mb-8 shadow-2xl" src="{{ asset('images/' . $car->image_path)}}" alt="">
+
         <h1 class="text-5xl uppercase bold">{{$car->name}}</h1>
     </div>
 
@@ -14,9 +17,9 @@
         </p>
         <table class="table-auto">
             <tr class="bg-blue-100">
-                <th class="w-1/4 border-4 border-gray-500">Model</th>
-                <th class="w-1/4 border-4 border-gray-500">Engines</th>
-                <th class="w-1/4 border-4 border-gray-500">Production Date</th>
+                <th class="w-1/5 border-4 border-gray-500">Model</th>
+                <th class="w-1/5 border-4 border-gray-500">Engines</th>
+                <th class="w-1/5 border-4 border-gray-500">Production Date</th>
             </tr>
 
             @forelse ($car->carModels as $model )
@@ -48,7 +51,7 @@
             @forelse ($car -> products as $product )
             {{$product->name}}
             @empty
-        <p>No car product description</p>
+             <p>No car product description</p>
         @endforelse
         </p>
         <hr class="mt-4 mb-8" />
