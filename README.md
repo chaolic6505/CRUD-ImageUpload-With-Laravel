@@ -1,1 +1,1 @@
-CRUD With Laravel
+Simple Larvel CRUD and image upload application.
