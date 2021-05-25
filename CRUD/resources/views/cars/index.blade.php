@@ -3,36 +3,29 @@
     <div class="text-center">
         <h1 class="text-5xl uppercase bold">Cars</h1>
     </div>
+    @if (Auth::user())
     <div class="pt-5">
-        <a
-            href="cars/create"
-            class="border-b-2 pb-2 border-dotted italic text-gray-500"
-        >
+        <a href="cars/create" class="border-b-2 pb-2 border-dotted italic text-gray-500">
             Add a new car &rarr;
         </a>
     </div>
+    @endif
+
     <div class="w5/6 py-10">
         @foreach ($cars as $car)
         <div class="m-auto">
             <div class="float-right">
-                <a
-                    href="cars/{{$car->id}}/edit"
-                    class="border-b-2 pb-2 border-dotted italic text-green-500"
-                    >Edit &rarr;</a
-                >
+                <a href="cars/{{$car->id}}/edit" class="border-b-2 pb-2 border-dotted italic text-green-500">Edit &rarr;</a>
 
                 <form class="pt-3" action="/cars/{{$car->id}}" method="POST">
                     @csrf @method('delete')
-                    <button
-                        type="submit"
-                        class="
+                    <button type="submit" class="
                             border-b-2
                             pb-2
                             border-dotted
                             italic
                             text-red-500
-                        "
-                    >
+                        ">
                         Delete &rarr;
                     </button>
                 </form>

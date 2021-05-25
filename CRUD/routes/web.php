@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CarController;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,8 +16,11 @@ use App\Http\Controllers\CarController;
 */
 
 
+
 Route::resource('/cars', CarController::class);
+
 Auth::routes();
 
-Route::get('/home', [\App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
+
+Route::get('/', [\App\Http\Controllers\HomeController::class, 'index'])->name('home');
