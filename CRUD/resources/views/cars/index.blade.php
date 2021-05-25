@@ -13,7 +13,9 @@
 
     <div class="w5/6 py-10">
         @foreach ($cars as $car)
+
         <div class="m-auto">
+            @if (isset(Auth::user()->id) && Auth::user()->id== $car->user_id)
             <div class="float-right">
                 <a href="cars/{{$car->id}}/edit" class="border-b-2 pb-2 border-dotted italic text-green-500">Edit &rarr;</a>
 
@@ -30,6 +32,8 @@
                     </button>
                 </form>
             </div>
+            @endif
+
 
             <span class="uppercase text-blue-500 font-bold text-xs italic">
                 Founded : {{$car->founded}}

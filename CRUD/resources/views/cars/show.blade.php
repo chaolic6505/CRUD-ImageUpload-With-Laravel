@@ -15,47 +15,48 @@
         <p class="text-lg text-gray-700 py-6">
             {{$car->description}}
         </p>
-        <table class="table-auto">
-            <tr class="bg-blue-100">
-                <th class="w-1/5 border-4 border-gray-500">Model</th>
-                <th class="w-1/5 border-4 border-gray-500">Engines</th>
-                <th class="w-1/5 border-4 border-gray-500">Production Date</th>
-            </tr>
 
-            @forelse ($car->carModels as $model )
-            <tr>
-                <td class="border-4 border-gray-500" {{$model-> model_name}} </td>
-
-                <td class="border-4 border-gray-500">
-                    @foreach ($car ->engines as $engine ) @if ($model->id ==
-                    $engine->model_id)
-                    {{$engine->engine_name}}
-
-                    @endif @endforeach
-                </td>
-                <td class="border-4 border-gray-500">
-                    {{
-                        date(
-                            'd-m-y',strtotime($car->productionDate->created_at)
-                        )
-                    }}
-                </td>
-            </tr>
-            @empty
-            <p>No car models found</p>
-            @endforelse
-        </table>
         <p class="text-left">
             Products types:
 
             @forelse ($car -> products as $product )
             {{$product->name}}
             @empty
-             <p>No car product description</p>
+        <p>No car product description</p>
         @endforelse
         </p>
         <hr class="mt-4 mb-8" />
     </div>
+    <table class="table-auto">
+        <tr class="bg-blue-100">
+            <th class="w-1/5 border-4 border-gray-500">Model</th>
+            <th class="w-1/5 border-4 border-gray-500">Engines</th>
+            <th class="w-1/5 border-4 border-gray-500">Production Date</th>
+        </tr>
+
+        @forelse ($car->carModels as $model )
+        <tr>
+            <td class="border-4 border-gray-500" {{$model-> model_name}} </td>
+
+            <td class="border-4 border-gray-500">
+                @foreach ($car ->engines as $engine ) @if ($model->id ==
+                $engine->model_id)
+                {{$engine->engine_name}}
+
+                @endif @endforeach
+            </td>
+            <td class="border-4 border-gray-500">
+                {{
+                            date(
+                                'd-m-y',strtotime($car->productionDate->created_at)
+                            )
+                        }}
+            </td>
+        </tr>
+        @empty
+        <p>No car models found</p>
+        @endforelse
+    </table>
 </div>
 
 @endsection
