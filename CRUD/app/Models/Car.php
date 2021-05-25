@@ -12,18 +12,21 @@ class Car extends Model
     protected $table = 'cars';
 
     protected $primaryKey = 'id';
-    
-    protected $fillable =['name','founded','description'];
 
-    public function carmodels(){
+    protected $fillable = ['name', 'founded', 'description'];
+
+    public function carmodels()
+    {
         return $this->hasMany(CarModel::class);
     }
 
-    public  function headquater(){
+    public  function headquater()
+    {
         return $this->hasOne(Headquater::class);
     }
     //Define a many through relationship
-    public function engines(){
+    public function engines()
+    {
         return $this->hasManyThrough(
             Engine::class,
             CarModel::class,
@@ -34,12 +37,20 @@ class Car extends Model
 
     //Define a has one through relationship
 
-    public function productionDate(){
+    public function productionDate()
+    {
         return $this->hasOneThrough(
             CarProductionDate::class,
             CarModel::class,
             'car_id',
             'model_id'
+        );
+    }
+
+    public function products()
+    {
+        return $this->belongsToMany(
+            Product::class
         );
     }
 }
