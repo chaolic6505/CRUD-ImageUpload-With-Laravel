@@ -10,9 +10,7 @@
     <form action="/cars" method="POST">
         @csrf
         <div class="block">
-            <input
-                type="text"
-                class="
+            <input type="text" class="
                     block
                     shadow-5xl
                     mb-10
@@ -20,14 +18,9 @@
                     w-80
                     italic
                     placeholder-gray-400
-                "
-                name="name"
-                placeholder="Brand name..."
-            />
+                " name="name" placeholder="Brand name..." />
 
-            <input
-                type="text"
-                class="
+            <input type="text" class="
                     block
                     shadow-5xl
                     mb-10
@@ -35,14 +28,9 @@
                     w-80
                     italic
                     placeholder-gray-400
-                "
-                name="founded"
-                placeholder="Founded..."
-            />
+                " name="founded" placeholder="Founded..." />
 
-            <input
-                type="text"
-                class="
+            <input type="text" class="
                     block
                     shadow-5xl
                     mb-10
@@ -50,14 +38,9 @@
                     w-80
                     italic
                     placeholder-gray-400
-                "
-                name="description"
-                placeholder="Description..."
-            />
+                " name="description" placeholder="Description..." />
 
-            <button
-                type="submit"
-                class="
+            <button type="submit" class="
                     bg-blue-200
                     block
                     shadow-5xl
@@ -66,12 +49,20 @@
                     w-80
                     uppercase
                     font-bold
-                "
-            >
+                ">
                 Submit
             </button>
         </div>
     </form>
-</div>
 
+</div>
+@if ($errors->any())
+<div class="m-auto w-4/8 text-center">
+    @foreach ($errors->all() as $error )
+    <li class="text-red-500 list-none">
+        {{$error}}
+    </li>
+    @endforeach
+</div>
+@endif
 @endsection

@@ -41,6 +41,12 @@ class CarController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'name' => ['required'], ['unique:cars'],
+            'founded' => ['required'], ['integer'], ['min:0'], ['max:2021'],
+            'description' => ['required']
+        ]);
+
         $car =  Car::create([
             'name' => $request->input('name'),
             'founded' => $request->input('founded'),
@@ -64,7 +70,7 @@ class CarController extends Controller
 
         //dd($car->engines);
         //var_dump($car->products);
-        print_r($products);
+        //print_r($products);
 
         return view('cars.show')->with('car', $car);
     }
