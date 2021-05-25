@@ -58,7 +58,10 @@ class CarController extends Controller
      */
     public function show($id)
     {
-        $car = Car::find($id)->first();
+        $car = Car::find($id);
+
+        //dd($car->engines);
+        //var_dump($car->productionDate);
         
         return view('cars.show')->with('car',$car);
     }
