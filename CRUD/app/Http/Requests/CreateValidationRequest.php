@@ -24,7 +24,7 @@ class CreateValidationRequest extends FormRequest
     public function rules()
     {
         return [
-
+            'image' => ['required'], ['mimes:jpg,png,jpeg'], ['max:5048'],
             'name' => ['required'], ['unique:cars'],
             'founded' => ['required'], ['integer'], ['min:0'], ['max:2021'],
             'description' => ['required']

@@ -43,12 +43,21 @@ class CarController extends Controller
      */
     public function store(CreateValidationRequest $request)
     {
+
         $request->validated();
+
+        $newImageName = time() . '-' . $request->name . '.' . $request->image->extension();
+        //dd($request->all());
+
+        $request->image->move(public_path('images'), $newImageName);
+
 
         $car =  Car::create([
             'name' => $request->input('name'),
             'founded' => $request->input('founded'),
-            'description' => $request->input('description')
+            'description' => $request->input('description'),
+            'image_path' => $newImageName
+
         ]);
 
 
