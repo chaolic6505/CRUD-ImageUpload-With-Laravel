@@ -39,7 +39,9 @@
                     italic
                     placeholder-gray-400
                 " name="description" placeholder="Description..." />
-
+            <!-- @error('description')
+            <div class="alert alert-danger">{{ $message }}</div>
+            @enderror -->
             <button type="submit" class="
                     bg-blue-200
                     block
