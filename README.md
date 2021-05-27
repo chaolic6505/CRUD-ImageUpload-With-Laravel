@@ -1,1 +1,1 @@
-Simple Laravel CRUD and image upload application.
+Simple Laravel CRUD , auth, and  image upload application.
